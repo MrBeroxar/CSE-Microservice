@@ -8,11 +8,11 @@ service RatingService{
 }
 
 message ProductRequest {
-	int64 productId = 1;
+	string productId = 1;
 	int64 rating = 2;
 }
 message RatingRequest {
-	int64 productId = 1;
+	string productId = 1;
 }
 message RatingResponse {
 	int64 rating = 1;

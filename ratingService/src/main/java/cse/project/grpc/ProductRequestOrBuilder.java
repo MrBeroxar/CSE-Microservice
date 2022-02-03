@@ -10,10 +10,10 @@ public interface ProductRequestOrBuilder extends
   /**
    * <code>int64 productId = 1;</code>
    */
-  long getProductId();
+  String getProductId();
 
   /**
    * <code>int64 rating = 2;</code>
    */
-  long getRating();
+  Integer getRating();
 }

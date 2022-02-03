@@ -14,7 +14,7 @@ public class RatingService extends RatingServiceImplBase{
 	@Override
 	public void rateProduct(ProductRequest request, StreamObserver<ApiResponse> responseObserver) {
 		
-		persistenceService.saveRating(request.getProductId(), request.getRating());
+		persistenceService.saveProductRating(request.getProductId(), request.getRating());
 		ApiResponse.Builder response = ApiResponse.newBuilder();
 		
 		response.setResponseMessage("SUCCESS: Rating saved");
@@ -27,7 +27,7 @@ public class RatingService extends RatingServiceImplBase{
 		
 		RatingResponse.Builder response = RatingResponse.newBuilder();
 		
-		response.setRating(persistenceService.getRating(request.getProductId()));
+		response.setRating(persistenceService.getProductRating(request.getProductId()));
 		response.setResponseMessage("SUCESS: Rating send");
 		responseObserver.onNext(response.build());
 		responseObserver.onCompleted();
