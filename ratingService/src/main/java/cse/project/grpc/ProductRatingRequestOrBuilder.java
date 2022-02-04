@@ -3,8 +3,8 @@
 
 package cse.project.grpc;
 
-public interface ProductRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ProductRequest)
+public interface ProductRatingRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:ProductRatingRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -16,9 +16,4 @@ public interface ProductRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getProductIdBytes();
-
-  /**
-   * <code>int64 rating = 2;</code>
-   */
-  long getRating();
 }

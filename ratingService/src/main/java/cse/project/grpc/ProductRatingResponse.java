@@ -4,19 +4,20 @@
 package cse.project.grpc;
 
 /**
- * Protobuf type {@code RatingResponse}
+ * Protobuf type {@code ProductRatingResponse}
  */
-public  final class RatingResponse extends
+public  final class ProductRatingResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:RatingResponse)
-    RatingResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:ProductRatingResponse)
+    ProductRatingResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use RatingResponse.newBuilder() to construct.
-  private RatingResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ProductRatingResponse.newBuilder() to construct.
+  private ProductRatingResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private RatingResponse() {
-    rating_ = 0L;
+  private ProductRatingResponse() {
+    rating_ = 0D;
+    ratingCount_ = 0L;
     responseMessage_ = "";
   }
 
@@ -25,7 +26,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RatingResponse(
+  private ProductRatingResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -44,12 +45,17 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 9: {
 
-            rating_ = input.readInt64();
+            rating_ = input.readDouble();
             break;
           }
-          case 18: {
+          case 16: {
+
+            ratingCount_ = input.readInt64();
+            break;
+          }
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
             responseMessage_ = s;
@@ -76,30 +82,39 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return cse.project.grpc.RatingServiceOuterClass.internal_static_RatingResponse_descriptor;
+    return cse.project.grpc.RatingServiceOuterClass.internal_static_ProductRatingResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return cse.project.grpc.RatingServiceOuterClass.internal_static_RatingResponse_fieldAccessorTable
+    return cse.project.grpc.RatingServiceOuterClass.internal_static_ProductRatingResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            cse.project.grpc.RatingResponse.class, cse.project.grpc.RatingResponse.Builder.class);
+            cse.project.grpc.ProductRatingResponse.class, cse.project.grpc.ProductRatingResponse.Builder.class);
   }
 
   public static final int RATING_FIELD_NUMBER = 1;
-  private long rating_;
+  private double rating_;
   /**
-   * <code>int64 rating = 1;</code>
+   * <code>double rating = 1;</code>
    */
-  public long getRating() {
+  public double getRating() {
     return rating_;
   }
 
-  public static final int RESPONSEMESSAGE_FIELD_NUMBER = 2;
+  public static final int RATINGCOUNT_FIELD_NUMBER = 2;
+  private long ratingCount_;
+  /**
+   * <code>int64 ratingCount = 2;</code>
+   */
+  public long getRatingCount() {
+    return ratingCount_;
+  }
+
+  public static final int RESPONSEMESSAGE_FIELD_NUMBER = 3;
   private volatile java.lang.Object responseMessage_;
   /**
-   * <code>string responseMessage = 2;</code>
+   * <code>string responseMessage = 3;</code>
    */
   public java.lang.String getResponseMessage() {
     java.lang.Object ref = responseMessage_;
@@ -114,7 +129,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string responseMessage = 2;</code>
+   * <code>string responseMessage = 3;</code>
    */
   public com.google.protobuf.ByteString
       getResponseMessageBytes() {
@@ -144,11 +159,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (rating_ != 0L) {
-      output.writeInt64(1, rating_);
+    if (rating_ != 0D) {
+      output.writeDouble(1, rating_);
+    }
+    if (ratingCount_ != 0L) {
+      output.writeInt64(2, ratingCount_);
     }
     if (!getResponseMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, responseMessage_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, responseMessage_);
     }
     unknownFields.writeTo(output);
   }
@@ -159,12 +177,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (rating_ != 0L) {
+    if (rating_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, rating_);
+        .computeDoubleSize(1, rating_);
+    }
+    if (ratingCount_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, ratingCount_);
     }
     if (!getResponseMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, responseMessage_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, responseMessage_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,14 +198,18 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof cse.project.grpc.RatingResponse)) {
+    if (!(obj instanceof cse.project.grpc.ProductRatingResponse)) {
       return super.equals(obj);
     }
-    cse.project.grpc.RatingResponse other = (cse.project.grpc.RatingResponse) obj;
+    cse.project.grpc.ProductRatingResponse other = (cse.project.grpc.ProductRatingResponse) obj;
 
     boolean result = true;
-    result = result && (getRating()
-        == other.getRating());
+    result = result && (
+        java.lang.Double.doubleToLongBits(getRating())
+        == java.lang.Double.doubleToLongBits(
+            other.getRating()));
+    result = result && (getRatingCount()
+        == other.getRatingCount());
     result = result && getResponseMessage()
         .equals(other.getResponseMessage());
     result = result && unknownFields.equals(other.unknownFields);
@@ -199,7 +225,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + RATING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRating());
+        java.lang.Double.doubleToLongBits(getRating()));
+    hash = (37 * hash) + RATINGCOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getRatingCount());
     hash = (37 * hash) + RESPONSEMESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getResponseMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -207,69 +236,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(byte[] data)
+  public static cse.project.grpc.ProductRatingResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(java.io.InputStream input)
+  public static cse.project.grpc.ProductRatingResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cse.project.grpc.RatingResponse parseDelimitedFrom(java.io.InputStream input)
+  public static cse.project.grpc.ProductRatingResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static cse.project.grpc.RatingResponse parseDelimitedFrom(
+  public static cse.project.grpc.ProductRatingResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static cse.project.grpc.RatingResponse parseFrom(
+  public static cse.project.grpc.ProductRatingResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -282,7 +311,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(cse.project.grpc.RatingResponse prototype) {
+  public static Builder newBuilder(cse.project.grpc.ProductRatingResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -298,26 +327,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code RatingResponse}
+   * Protobuf type {@code ProductRatingResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:RatingResponse)
-      cse.project.grpc.RatingResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:ProductRatingResponse)
+      cse.project.grpc.ProductRatingResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return cse.project.grpc.RatingServiceOuterClass.internal_static_RatingResponse_descriptor;
+      return cse.project.grpc.RatingServiceOuterClass.internal_static_ProductRatingResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return cse.project.grpc.RatingServiceOuterClass.internal_static_RatingResponse_fieldAccessorTable
+      return cse.project.grpc.RatingServiceOuterClass.internal_static_ProductRatingResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              cse.project.grpc.RatingResponse.class, cse.project.grpc.RatingResponse.Builder.class);
+              cse.project.grpc.ProductRatingResponse.class, cse.project.grpc.ProductRatingResponse.Builder.class);
     }
 
-    // Construct using cse.project.grpc.RatingResponse.newBuilder()
+    // Construct using cse.project.grpc.ProductRatingResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -335,7 +364,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      rating_ = 0L;
+      rating_ = 0D;
+
+      ratingCount_ = 0L;
 
       responseMessage_ = "";
 
@@ -345,17 +376,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return cse.project.grpc.RatingServiceOuterClass.internal_static_RatingResponse_descriptor;
+      return cse.project.grpc.RatingServiceOuterClass.internal_static_ProductRatingResponse_descriptor;
     }
 
     @java.lang.Override
-    public cse.project.grpc.RatingResponse getDefaultInstanceForType() {
-      return cse.project.grpc.RatingResponse.getDefaultInstance();
+    public cse.project.grpc.ProductRatingResponse getDefaultInstanceForType() {
+      return cse.project.grpc.ProductRatingResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public cse.project.grpc.RatingResponse build() {
-      cse.project.grpc.RatingResponse result = buildPartial();
+    public cse.project.grpc.ProductRatingResponse build() {
+      cse.project.grpc.ProductRatingResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -363,9 +394,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public cse.project.grpc.RatingResponse buildPartial() {
-      cse.project.grpc.RatingResponse result = new cse.project.grpc.RatingResponse(this);
+    public cse.project.grpc.ProductRatingResponse buildPartial() {
+      cse.project.grpc.ProductRatingResponse result = new cse.project.grpc.ProductRatingResponse(this);
       result.rating_ = rating_;
+      result.ratingCount_ = ratingCount_;
       result.responseMessage_ = responseMessage_;
       onBuilt();
       return result;
@@ -405,18 +437,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof cse.project.grpc.RatingResponse) {
-        return mergeFrom((cse.project.grpc.RatingResponse)other);
+      if (other instanceof cse.project.grpc.ProductRatingResponse) {
+        return mergeFrom((cse.project.grpc.ProductRatingResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(cse.project.grpc.RatingResponse other) {
-      if (other == cse.project.grpc.RatingResponse.getDefaultInstance()) return this;
-      if (other.getRating() != 0L) {
+    public Builder mergeFrom(cse.project.grpc.ProductRatingResponse other) {
+      if (other == cse.project.grpc.ProductRatingResponse.getDefaultInstance()) return this;
+      if (other.getRating() != 0D) {
         setRating(other.getRating());
+      }
+      if (other.getRatingCount() != 0L) {
+        setRatingCount(other.getRatingCount());
       }
       if (!other.getResponseMessage().isEmpty()) {
         responseMessage_ = other.responseMessage_;
@@ -437,11 +472,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      cse.project.grpc.RatingResponse parsedMessage = null;
+      cse.project.grpc.ProductRatingResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (cse.project.grpc.RatingResponse) e.getUnfinishedMessage();
+        parsedMessage = (cse.project.grpc.ProductRatingResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -451,35 +486,61 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long rating_ ;
+    private double rating_ ;
     /**
-     * <code>int64 rating = 1;</code>
+     * <code>double rating = 1;</code>
      */
-    public long getRating() {
+    public double getRating() {
       return rating_;
     }
     /**
-     * <code>int64 rating = 1;</code>
+     * <code>double rating = 1;</code>
      */
-    public Builder setRating(long value) {
+    public Builder setRating(double value) {
       
       rating_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 rating = 1;</code>
+     * <code>double rating = 1;</code>
      */
     public Builder clearRating() {
       
-      rating_ = 0L;
+      rating_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private long ratingCount_ ;
+    /**
+     * <code>int64 ratingCount = 2;</code>
+     */
+    public long getRatingCount() {
+      return ratingCount_;
+    }
+    /**
+     * <code>int64 ratingCount = 2;</code>
+     */
+    public Builder setRatingCount(long value) {
+      
+      ratingCount_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 ratingCount = 2;</code>
+     */
+    public Builder clearRatingCount() {
+      
+      ratingCount_ = 0L;
       onChanged();
       return this;
     }
 
     private java.lang.Object responseMessage_ = "";
     /**
-     * <code>string responseMessage = 2;</code>
+     * <code>string responseMessage = 3;</code>
      */
     public java.lang.String getResponseMessage() {
       java.lang.Object ref = responseMessage_;
@@ -494,7 +555,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string responseMessage = 2;</code>
+     * <code>string responseMessage = 3;</code>
      */
     public com.google.protobuf.ByteString
         getResponseMessageBytes() {
@@ -510,7 +571,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string responseMessage = 2;</code>
+     * <code>string responseMessage = 3;</code>
      */
     public Builder setResponseMessage(
         java.lang.String value) {
@@ -523,7 +584,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string responseMessage = 2;</code>
+     * <code>string responseMessage = 3;</code>
      */
     public Builder clearResponseMessage() {
       
@@ -532,7 +593,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string responseMessage = 2;</code>
+     * <code>string responseMessage = 3;</code>
      */
     public Builder setResponseMessageBytes(
         com.google.protobuf.ByteString value) {
@@ -558,41 +619,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:RatingResponse)
+    // @@protoc_insertion_point(builder_scope:ProductRatingResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:RatingResponse)
-  private static final cse.project.grpc.RatingResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:ProductRatingResponse)
+  private static final cse.project.grpc.ProductRatingResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new cse.project.grpc.RatingResponse();
+    DEFAULT_INSTANCE = new cse.project.grpc.ProductRatingResponse();
   }
 
-  public static cse.project.grpc.RatingResponse getDefaultInstance() {
+  public static cse.project.grpc.ProductRatingResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<RatingResponse>
-      PARSER = new com.google.protobuf.AbstractParser<RatingResponse>() {
+  private static final com.google.protobuf.Parser<ProductRatingResponse>
+      PARSER = new com.google.protobuf.AbstractParser<ProductRatingResponse>() {
     @java.lang.Override
-    public RatingResponse parsePartialFrom(
+    public ProductRatingResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RatingResponse(input, extensionRegistry);
+      return new ProductRatingResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<RatingResponse> parser() {
+  public static com.google.protobuf.Parser<ProductRatingResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<RatingResponse> getParserForType() {
+  public com.google.protobuf.Parser<ProductRatingResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public cse.project.grpc.RatingResponse getDefaultInstanceForType() {
+  public cse.project.grpc.ProductRatingResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -3,12 +3,12 @@
 
 package cse.project.grpc;
 
-public interface RatingRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:RatingRequest)
+public interface ShopRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:ShopRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 productId = 1;</code>
+   * <code>int64 rating = 1;</code>
    */
-  long getProductId();
+  long getRating();
 }

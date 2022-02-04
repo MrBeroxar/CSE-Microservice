@@ -59,36 +59,100 @@ public final class RatingServiceGrpc {
      return getRateProductMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<cse.project.grpc.RatingRequest,
-      cse.project.grpc.RatingResponse> getGetProductRatingMethod;
+  private static volatile io.grpc.MethodDescriptor<cse.project.grpc.ProductRatingRequest,
+      cse.project.grpc.ProductRatingResponse> getGetProductRatingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetProductRating",
-      requestType = cse.project.grpc.RatingRequest.class,
-      responseType = cse.project.grpc.RatingResponse.class,
+      requestType = cse.project.grpc.ProductRatingRequest.class,
+      responseType = cse.project.grpc.ProductRatingResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cse.project.grpc.RatingRequest,
-      cse.project.grpc.RatingResponse> getGetProductRatingMethod() {
-    io.grpc.MethodDescriptor<cse.project.grpc.RatingRequest, cse.project.grpc.RatingResponse> getGetProductRatingMethod;
+  public static io.grpc.MethodDescriptor<cse.project.grpc.ProductRatingRequest,
+      cse.project.grpc.ProductRatingResponse> getGetProductRatingMethod() {
+    io.grpc.MethodDescriptor<cse.project.grpc.ProductRatingRequest, cse.project.grpc.ProductRatingResponse> getGetProductRatingMethod;
     if ((getGetProductRatingMethod = RatingServiceGrpc.getGetProductRatingMethod) == null) {
       synchronized (RatingServiceGrpc.class) {
         if ((getGetProductRatingMethod = RatingServiceGrpc.getGetProductRatingMethod) == null) {
           RatingServiceGrpc.getGetProductRatingMethod = getGetProductRatingMethod = 
-              io.grpc.MethodDescriptor.<cse.project.grpc.RatingRequest, cse.project.grpc.RatingResponse>newBuilder()
+              io.grpc.MethodDescriptor.<cse.project.grpc.ProductRatingRequest, cse.project.grpc.ProductRatingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "RatingService", "GetProductRating"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cse.project.grpc.RatingRequest.getDefaultInstance()))
+                  cse.project.grpc.ProductRatingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cse.project.grpc.RatingResponse.getDefaultInstance()))
+                  cse.project.grpc.ProductRatingResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new RatingServiceMethodDescriptorSupplier("GetProductRating"))
                   .build();
           }
         }
      }
      return getGetProductRatingMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cse.project.grpc.ShopRequest,
+      cse.project.grpc.ApiResponse> getRateShopMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RateShop",
+      requestType = cse.project.grpc.ShopRequest.class,
+      responseType = cse.project.grpc.ApiResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cse.project.grpc.ShopRequest,
+      cse.project.grpc.ApiResponse> getRateShopMethod() {
+    io.grpc.MethodDescriptor<cse.project.grpc.ShopRequest, cse.project.grpc.ApiResponse> getRateShopMethod;
+    if ((getRateShopMethod = RatingServiceGrpc.getRateShopMethod) == null) {
+      synchronized (RatingServiceGrpc.class) {
+        if ((getRateShopMethod = RatingServiceGrpc.getRateShopMethod) == null) {
+          RatingServiceGrpc.getRateShopMethod = getRateShopMethod = 
+              io.grpc.MethodDescriptor.<cse.project.grpc.ShopRequest, cse.project.grpc.ApiResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "RatingService", "RateShop"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cse.project.grpc.ShopRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cse.project.grpc.ApiResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new RatingServiceMethodDescriptorSupplier("RateShop"))
+                  .build();
+          }
+        }
+     }
+     return getRateShopMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cse.project.grpc.Empty,
+      cse.project.grpc.ShopRatingResponse> getGetShopRatingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetShopRating",
+      requestType = cse.project.grpc.Empty.class,
+      responseType = cse.project.grpc.ShopRatingResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cse.project.grpc.Empty,
+      cse.project.grpc.ShopRatingResponse> getGetShopRatingMethod() {
+    io.grpc.MethodDescriptor<cse.project.grpc.Empty, cse.project.grpc.ShopRatingResponse> getGetShopRatingMethod;
+    if ((getGetShopRatingMethod = RatingServiceGrpc.getGetShopRatingMethod) == null) {
+      synchronized (RatingServiceGrpc.class) {
+        if ((getGetShopRatingMethod = RatingServiceGrpc.getGetShopRatingMethod) == null) {
+          RatingServiceGrpc.getGetShopRatingMethod = getGetShopRatingMethod = 
+              io.grpc.MethodDescriptor.<cse.project.grpc.Empty, cse.project.grpc.ShopRatingResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "RatingService", "GetShopRating"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cse.project.grpc.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cse.project.grpc.ShopRatingResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new RatingServiceMethodDescriptorSupplier("GetShopRating"))
+                  .build();
+          }
+        }
+     }
+     return getGetShopRatingMethod;
   }
 
   /**
@@ -127,9 +191,23 @@ public final class RatingServiceGrpc {
 
     /**
      */
-    public void getProductRating(cse.project.grpc.RatingRequest request,
-        io.grpc.stub.StreamObserver<cse.project.grpc.RatingResponse> responseObserver) {
+    public void getProductRating(cse.project.grpc.ProductRatingRequest request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ProductRatingResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetProductRatingMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void rateShop(cse.project.grpc.ShopRequest request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ApiResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRateShopMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getShopRating(cse.project.grpc.Empty request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ShopRatingResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetShopRatingMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -145,9 +223,23 @@ public final class RatingServiceGrpc {
             getGetProductRatingMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                cse.project.grpc.RatingRequest,
-                cse.project.grpc.RatingResponse>(
+                cse.project.grpc.ProductRatingRequest,
+                cse.project.grpc.ProductRatingResponse>(
                   this, METHODID_GET_PRODUCT_RATING)))
+          .addMethod(
+            getRateShopMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cse.project.grpc.ShopRequest,
+                cse.project.grpc.ApiResponse>(
+                  this, METHODID_RATE_SHOP)))
+          .addMethod(
+            getGetShopRatingMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cse.project.grpc.Empty,
+                cse.project.grpc.ShopRatingResponse>(
+                  this, METHODID_GET_SHOP_RATING)))
           .build();
     }
   }
@@ -180,10 +272,26 @@ public final class RatingServiceGrpc {
 
     /**
      */
-    public void getProductRating(cse.project.grpc.RatingRequest request,
-        io.grpc.stub.StreamObserver<cse.project.grpc.RatingResponse> responseObserver) {
+    public void getProductRating(cse.project.grpc.ProductRatingRequest request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ProductRatingResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetProductRatingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void rateShop(cse.project.grpc.ShopRequest request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ApiResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRateShopMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getShopRating(cse.project.grpc.Empty request,
+        io.grpc.stub.StreamObserver<cse.project.grpc.ShopRatingResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetShopRatingMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -214,9 +322,23 @@ public final class RatingServiceGrpc {
 
     /**
      */
-    public cse.project.grpc.RatingResponse getProductRating(cse.project.grpc.RatingRequest request) {
+    public cse.project.grpc.ProductRatingResponse getProductRating(cse.project.grpc.ProductRatingRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetProductRatingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cse.project.grpc.ApiResponse rateShop(cse.project.grpc.ShopRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRateShopMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cse.project.grpc.ShopRatingResponse getShopRating(cse.project.grpc.Empty request) {
+      return blockingUnaryCall(
+          getChannel(), getGetShopRatingMethod(), getCallOptions(), request);
     }
   }
 
@@ -248,15 +370,33 @@ public final class RatingServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<cse.project.grpc.RatingResponse> getProductRating(
-        cse.project.grpc.RatingRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<cse.project.grpc.ProductRatingResponse> getProductRating(
+        cse.project.grpc.ProductRatingRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetProductRatingMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cse.project.grpc.ApiResponse> rateShop(
+        cse.project.grpc.ShopRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRateShopMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cse.project.grpc.ShopRatingResponse> getShopRating(
+        cse.project.grpc.Empty request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetShopRatingMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_RATE_PRODUCT = 0;
   private static final int METHODID_GET_PRODUCT_RATING = 1;
+  private static final int METHODID_RATE_SHOP = 2;
+  private static final int METHODID_GET_SHOP_RATING = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -280,8 +420,16 @@ public final class RatingServiceGrpc {
               (io.grpc.stub.StreamObserver<cse.project.grpc.ApiResponse>) responseObserver);
           break;
         case METHODID_GET_PRODUCT_RATING:
-          serviceImpl.getProductRating((cse.project.grpc.RatingRequest) request,
-              (io.grpc.stub.StreamObserver<cse.project.grpc.RatingResponse>) responseObserver);
+          serviceImpl.getProductRating((cse.project.grpc.ProductRatingRequest) request,
+              (io.grpc.stub.StreamObserver<cse.project.grpc.ProductRatingResponse>) responseObserver);
+          break;
+        case METHODID_RATE_SHOP:
+          serviceImpl.rateShop((cse.project.grpc.ShopRequest) request,
+              (io.grpc.stub.StreamObserver<cse.project.grpc.ApiResponse>) responseObserver);
+          break;
+        case METHODID_GET_SHOP_RATING:
+          serviceImpl.getShopRating((cse.project.grpc.Empty) request,
+              (io.grpc.stub.StreamObserver<cse.project.grpc.ShopRatingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +494,8 @@ public final class RatingServiceGrpc {
               .setSchemaDescriptor(new RatingServiceFileDescriptorSupplier())
               .addMethod(getRateProductMethod())
               .addMethod(getGetProductRatingMethod())
+              .addMethod(getRateShopMethod())
+              .addMethod(getGetShopRatingMethod())
               .build();
         }
       }

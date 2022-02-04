@@ -20,20 +20,35 @@ public final class RatingServiceOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ProductRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RatingRequest_descriptor;
+    internal_static_ProductRatingRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RatingRequest_fieldAccessorTable;
+      internal_static_ProductRatingRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_RatingResponse_descriptor;
+    internal_static_ProductRatingResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_RatingResponse_fieldAccessorTable;
+      internal_static_ProductRatingResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ApiResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ApiResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ShopRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ShopRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Empty_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Empty_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ShopRatingResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ShopRatingResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,14 +59,21 @@ public final class RatingServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\023ratingService.proto\"3\n\016ProductRequest\022" +
-      "\021\n\tproductId\030\001 \001(\003\022\016\n\006rating\030\002 \001(\003\"\"\n\rRa" +
-      "tingRequest\022\021\n\tproductId\030\001 \001(\003\"9\n\016Rating" +
-      "Response\022\016\n\006rating\030\001 \001(\003\022\027\n\017responseMess" +
-      "age\030\002 \001(\t\"&\n\013ApiResponse\022\027\n\017responseMess" +
-      "age\030\001 \001(\t2v\n\rRatingService\022.\n\013RateProduc" +
-      "t\022\017.ProductRequest\032\014.ApiResponse\"\000\0225\n\020Ge" +
-      "tProductRating\022\016.RatingRequest\032\017.RatingR" +
-      "esponse\"\000B\024\n\020cse.project.grpcP\001b\006proto3"
+      "\021\n\tproductId\030\001 \001(\t\022\016\n\006rating\030\002 \001(\003\")\n\024Pr" +
+      "oductRatingRequest\022\021\n\tproductId\030\001 \001(\t\"U\n" +
+      "\025ProductRatingResponse\022\016\n\006rating\030\001 \001(\001\022\023" +
+      "\n\013ratingCount\030\002 \001(\003\022\027\n\017responseMessage\030\003" +
+      " \001(\t\"&\n\013ApiResponse\022\027\n\017responseMessage\030\001" +
+      " \001(\t\"\035\n\013ShopRequest\022\016\n\006rating\030\001 \001(\003\"\007\n\005E" +
+      "mpty\"R\n\022ShopRatingResponse\022\016\n\006rating\030\001 \001" +
+      "(\001\022\023\n\013ratingCount\030\002 \001(\003\022\027\n\017responseMessa" +
+      "ge\030\003 \001(\t2\336\001\n\rRatingService\022.\n\013RateProduc" +
+      "t\022\017.ProductRequest\032\014.ApiResponse\"\000\022C\n\020Ge" +
+      "tProductRating\022\025.ProductRatingRequest\032\026." +
+      "ProductRatingResponse\"\000\022(\n\010RateShop\022\014.Sh" +
+      "opRequest\032\014.ApiResponse\"\000\022.\n\rGetShopRati" +
+      "ng\022\006.Empty\032\023.ShopRatingResponse\"\000B\024\n\020cse" +
+      ".project.grpcP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -71,24 +93,42 @@ public final class RatingServiceOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProductRequest_descriptor,
         new java.lang.String[] { "ProductId", "Rating", });
-    internal_static_RatingRequest_descriptor =
+    internal_static_ProductRatingRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_RatingRequest_fieldAccessorTable = new
+    internal_static_ProductRatingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RatingRequest_descriptor,
+        internal_static_ProductRatingRequest_descriptor,
         new java.lang.String[] { "ProductId", });
-    internal_static_RatingResponse_descriptor =
+    internal_static_ProductRatingResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_RatingResponse_fieldAccessorTable = new
+    internal_static_ProductRatingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_RatingResponse_descriptor,
-        new java.lang.String[] { "Rating", "ResponseMessage", });
+        internal_static_ProductRatingResponse_descriptor,
+        new java.lang.String[] { "Rating", "RatingCount", "ResponseMessage", });
     internal_static_ApiResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_ApiResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ApiResponse_descriptor,
         new java.lang.String[] { "ResponseMessage", });
+    internal_static_ShopRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_ShopRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ShopRequest_descriptor,
+        new java.lang.String[] { "Rating", });
+    internal_static_Empty_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Empty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Empty_descriptor,
+        new java.lang.String[] { });
+    internal_static_ShopRatingResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_ShopRatingResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ShopRatingResponse_descriptor,
+        new java.lang.String[] { "Rating", "RatingCount", "ResponseMessage", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
