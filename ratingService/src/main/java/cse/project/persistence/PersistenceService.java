@@ -11,7 +11,7 @@ public class PersistenceService {
 		if (productId == null || rating == null) return;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			statement.executeQuery("INSERT INTO product_reviews(product_id, review) VALUES(" + productId + ", " + rating + ");");
+			statement.executeQuery("INSERT INTO product_ratings(product_id, rating) VALUES(" + productId + ", " + rating + ");");
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
@@ -24,7 +24,7 @@ public class PersistenceService {
 		if (productId == null) return 0;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM product_reviews WHERE productId='" + productId +"';");
+			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM product_ratings WHERE productId='" + productId +"';");
 			return resultSet.getDouble(0);
 		}
 		catch (SQLException e) {
@@ -38,7 +38,7 @@ public class PersistenceService {
 		if (productId == null) return 0;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM product_reviews WHERE productId='" + productId +"';");
+			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM product_ratings WHERE productId='" + productId +"';");
 			return resultSet.getInt(0);
 		}
 		catch (SQLException e) {
@@ -52,7 +52,7 @@ public class PersistenceService {
 		if (rating == null) return;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			statement.executeQuery("INSERT INTO shop_reviews(review) VALUES(" + rating + ");");
+			statement.executeQuery("INSERT INTO shop_ratings(rating) VALUES(" + rating + ");");
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
@@ -64,7 +64,7 @@ public class PersistenceService {
 	public double getShopRating() {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM shop_reviews;");
+			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM shop_ratings;");
 			return resultSet.getDouble(0);
 		}
 		catch (SQLException e) {
@@ -77,7 +77,7 @@ public class PersistenceService {
 	public int getNumberOfShopRatings() {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM shop_reviews;");
+			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM shop_ratings;");
 			return resultSet.getInt(0);
 		}
 		catch (SQLException e) {
