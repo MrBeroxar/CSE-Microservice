@@ -25,7 +25,7 @@ public class PersistenceService {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM product_ratings WHERE productId='" + productId +"';");
-			return resultSet.getDouble(0);
+			while(resultSet.next()) {return resultSet.getInt(1);};
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
@@ -39,7 +39,7 @@ public class PersistenceService {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM product_ratings WHERE productId='" + productId +"';");
-			return resultSet.getInt(0);
+			while(resultSet.next()) {return resultSet.getInt(1);}
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
@@ -65,7 +65,7 @@ public class PersistenceService {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT avg(rating) FROM shop_ratings;");
-			return resultSet.getDouble(0);
+			while(resultSet.next()) {return resultSet.getInt(1);}
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
@@ -78,7 +78,7 @@ public class PersistenceService {
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("SELECT count(rating) FROM shop_ratings;");
-			return resultSet.getInt(0);
+			while(resultSet.next()) {return resultSet.getInt(1);}
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
