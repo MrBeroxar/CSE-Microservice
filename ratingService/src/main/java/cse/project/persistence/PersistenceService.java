@@ -3,7 +3,7 @@ package cse.project.persistence;
 import java.sql.*;
 
 public class PersistenceService {
-	String url = "35.228.65.73";
+	String url = "jdbc:postgresql://35.228.65.73/postgres";
 	String user = "postgres";
 	String password = "78en8hLiwpPuJOdB";
 
