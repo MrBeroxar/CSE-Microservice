@@ -11,7 +11,7 @@ public class PersistenceService {
 		if (productId == null || rating == null) return;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("INSERT INTO product_ratings(product_id, rating) VALUES(" + productId + ", " + rating + ");");
+			statement.executeUpdate("INSERT INTO product_ratings(product_id, rating) VALUES('" + productId + "', " + rating + ");");
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
