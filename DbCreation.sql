@@ -1,4 +1,6 @@
-use postgres;
+SET search_path TO public,postgres;
+DROP TABLE IF EXISTS product_reviews;
+DROP TABLE IF EXISTS shop_reviews;
 
 CREATE TABLE product_reviews (
     id int NOT NULL AUTO_INCREMENT,

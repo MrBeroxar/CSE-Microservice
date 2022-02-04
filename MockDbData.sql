@@ -1,4 +1,4 @@
-use postgres;
+SET search_path TO public,postgres;
 
 INSERT INTO product_ratings(product_id, rating) VALUES('0PUK6V6EV0', 5);
 INSERT INTO product_ratings(product_id, rating) VALUES('0PUK6V6EV0', 4);
