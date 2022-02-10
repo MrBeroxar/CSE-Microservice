@@ -70,6 +70,7 @@ public class PersistenceService {
 		catch (SQLException e) {
 			System.out.println("Connection failed");
 			e.printStackTrace();
+			
 		}
 		return 0;
 	}
