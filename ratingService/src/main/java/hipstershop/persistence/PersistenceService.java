@@ -3,23 +3,24 @@ package hipstershop.persistence;
 import java.sql.*;
 
 public class PersistenceService {
-	String url = "jdbc:postgresql://34.141.53.87/postgres";
+	String url = "jdbc:postgresql://35.228.248.143/postgres";
 	String user = "postgres";
 	String password = "78en8hLiwpPuJOdB";
 
-	public void saveProductRating(String productId, Integer rating) {
-		if (productId == null || rating == null) return;
+	public boolean saveProductRating(String productId, Integer rating) {
+		if (productId == null || rating == null) return false;
 		if (rating > 5) rating = 5;
 		if (rating < 1) rating = 1;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("INSERT INTO product_ratings(product_id, rating) VALUES('" + productId + "', " + rating + ");");
+			return true;
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 	public double getProductRating(String productId) {
@@ -51,19 +52,20 @@ public class PersistenceService {
 		return 0;
 	}
 
-	public void saveShopRating(Integer rating) {
-		if (rating == null) return;
+	public boolean saveShopRating(Integer rating) {
+		if (rating == null) return false;
 		if (rating > 5) rating = 5;
 		if (rating < 1) rating = 1;
 		try (Connection connection = DriverManager.getConnection(url, user, password)) {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("INSERT INTO shop_ratings(rating) VALUES(" + rating + ");");
+			return true;
 		}
 		catch (SQLException e) {
 			System.out.println("Connection failed");
 			e.printStackTrace();
 		}
-
+		return false;
 	}
 
 	public double getShopRating() {
@@ -91,6 +93,17 @@ public class PersistenceService {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	public void cleanupTests() {
+		try (Connection connection = DriverManager.getConnection(url, user, password)) {
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("DELETE FROM product_ratings WHERE product_id='testId'");
+		}
+		catch (SQLException e) {
+			System.out.println("Connection failed");
+			e.printStackTrace();
+		}
 	}
 
 	
