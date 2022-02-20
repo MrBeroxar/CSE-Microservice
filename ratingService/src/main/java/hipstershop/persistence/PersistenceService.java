@@ -95,16 +95,5 @@ public class PersistenceService {
 		return 0;
 	}
 
-	public void cleanupTests() {
-		try (Connection connection = DriverManager.getConnection(url, user, password)) {
-			Statement statement = connection.createStatement();
-			statement.executeUpdate("DELETE FROM product_ratings WHERE product_id='testId'");
-		}
-		catch (SQLException e) {
-			System.out.println("Connection failed");
-			e.printStackTrace();
-		}
-	}
 
-	
 }
